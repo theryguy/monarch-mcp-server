@@ -97,7 +97,6 @@ async def main():
             # Use the same instance for MFA
             await mm.multi_factor_authenticate(email, password, mfa_code)
             print("✅ MFA authentication successful")
-            mm.save_session()  # Manually save the session
         
         # Test the connection first
         print("\nTesting connection...")
@@ -160,15 +159,16 @@ async def main():
                 print("Try updating the library: pip install --upgrade monarchmoneycommunity")
                 return
         
-        # Save session securely to keyring
+        # Save session (keyring preferred, session file fallback)
         try:
-            print(f"\n🔐 Saving session securely to system keyring...")
+            print(f"\n🔐 Saving session...")
             secure_session.save_authenticated_session(mm)
-            print(f"✅ Session saved securely to keyring!")
-                
+            print(f"✅ Session saved successfully!")
+
         except Exception as save_error:
-            print(f"❌ Could not save session to keyring: {save_error}")
+            print(f"❌ Could not save session: {save_error}")
             print("You may need to run the login again.")
+            return
         
         print("\n🎉 Setup complete! You can now use these tools in Claude Desktop:")
         print("   • get_accounts - View all your accounts")  

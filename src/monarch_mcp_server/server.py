@@ -114,12 +114,18 @@ def setup_authentication() -> str:
 def check_auth_status() -> str:
     """Check if already authenticated with Monarch Money."""
     try:
-        # Check if we have a token in the keyring
+        from monarch_mcp_server.secure_session import SESSION_FILE
+
         token = secure_session.load_token()
         if token:
             status = "✅ Authentication token found in secure keyring storage\n"
         else:
             status = "❌ No authentication token found in keyring\n"
+
+        if os.path.exists(SESSION_FILE):
+            status += f"✅ Session file found: {SESSION_FILE}\n"
+        else:
+            status += f"❌ No session file found at: {SESSION_FILE}\n"
 
         email = os.getenv("MONARCH_EMAIL")
         if email:
