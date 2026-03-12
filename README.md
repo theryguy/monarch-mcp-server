@@ -43,8 +43,6 @@ A Model Context Protocol (MCP) server for integrating with the Monarch Money per
 
    **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
 
-   **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-
    ```json
    {
      "mcpServers": {
