@@ -50,4 +50,13 @@ Three main files in a `src/` layout package (`src/monarch_mcp_server/`):
 - All dates use `YYYY-MM-DD` format
 - Transaction amounts: positive = income, negative = expenses
 - Tools return JSON-formatted strings
-- pytest with `asyncio_mode = "auto"` (no test files exist yet)
+- pytest with `asyncio_mode = "auto"`
+
+## Testing
+
+Tests live in `tests/` with shared fixtures in `conftest.py`. All external dependencies (MonarchMoney API, keyring) are mocked — no real credentials needed. Two test modules:
+
+- **test_secure_session.py** — token CRUD, client creation, legacy session cleanup
+- **test_server.py** — all 11 MCP server tools (accounts, transactions, budgets, cashflow, holdings, create/update, refresh)
+
+Key fixture: `mock_get_monarch_client` patches `get_monarch_client` to return a `MagicMock` with `AsyncMock` methods, used by most server tool tests.
