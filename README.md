@@ -67,7 +67,51 @@ A Model Context Protocol (MCP) server for integrating with the Monarch Money per
    - Replace `/opt/homebrew/bin/uv` with your actual uv path from step 5 if different
    - Replace `/path/to/your/monarch-mcp-server` with your actual clone path
 
-4. **Restart Claude Desktop**
+7. **Restart Claude Desktop**
+
+### Claude Code Configuration
+
+**Option A — via CLI:**
+
+```bash
+claude mcp add --transport stdio monarch -- \
+  /opt/homebrew/bin/uv run \
+  --with mcp[cli] \
+  --with-editable /path/to/your/monarch-mcp-server \
+  mcp run \
+  /path/to/your/monarch-mcp-server/src/monarch_mcp_server/server.py
+```
+
+**Option B — via config file:**
+
+Add the following to `~/.claude/settings.json`:
+
+```json
+{
+  "mcpServers": {
+    "monarch": {
+      "command": "/opt/homebrew/bin/uv",
+      "args": [
+        "run",
+        "--with",
+        "mcp[cli]",
+        "--with-editable",
+        "/path/to/your/monarch-mcp-server",
+        "mcp",
+        "run",
+        "/path/to/your/monarch-mcp-server/src/monarch_mcp_server/server.py"
+      ]
+    }
+  }
+}
+```
+
+**Important**: Replace `/opt/homebrew/bin/uv` with your actual uv path and `/path/to/your/monarch-mcp-server` with your actual clone path.
+
+Verify the server is configured:
+```bash
+claude mcp list
+```
 
 ### 2. One-Time Authentication Setup
 
