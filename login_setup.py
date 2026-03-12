@@ -17,8 +17,25 @@ from pathlib import Path
 src_path = Path(__file__).parent / "src"
 sys.path.insert(0, str(src_path))
 
-from monarchmoney import MonarchMoney, RequireMFAException
-from dotenv import load_dotenv
+try:
+    from monarchmoney import MonarchMoney, RequireMFAException
+except ModuleNotFoundError:
+    print(
+        "\n❌ monarchmoneycommunity is not installed in the current Python environment.\n"
+        "   Run this script via uv so dependencies are resolved automatically:\n\n"
+        "       uv run python login_setup.py\n"
+    )
+    sys.exit(1)
+
+try:
+    from dotenv import load_dotenv
+except ModuleNotFoundError:
+    print(
+        "\n❌ python-dotenv is not installed in the current Python environment.\n"
+        "   Run this script via uv so dependencies are resolved automatically:\n\n"
+        "       uv run python login_setup.py\n"
+    )
+    sys.exit(1)
 from monarch_mcp_server.secure_session import secure_session
 
 async def main():

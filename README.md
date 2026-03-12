@@ -6,7 +6,7 @@ A Model Context Protocol (MCP) server for integrating with the Monarch Money per
 
 My MonarchMoney referral: https://www.monarchmoney.com/referral/ufmn0r83yf?r_source=share
 
-**Built with the [MonarchMoney Python library](https://github.com/hammem/monarchmoney) by [@hammem](https://github.com/hammem)** - A fantastic unofficial API for Monarch Money with full MFA support.
+**Built with the [monarchmoneycommunity Python library](https://github.com/bradleyseanf/monarchmoneycommunity) by [@bradleyseanf](https://github.com/bradleyseanf)** - An actively maintained community fork of the unofficial Monarch Money API with full MFA support.
 
 <a href="https://glama.ai/mcp/servers/@robcerda/monarch-mcp-server">
   <img width="380" height="200" src="https://glama.ai/mcp/servers/@robcerda/monarch-mcp-server/badge" alt="monarch-mcp-server MCP server" />
@@ -24,8 +24,7 @@ My MonarchMoney referral: https://www.monarchmoney.com/referral/ufmn0r83yf?r_sou
 
 2. **Install dependencies**:
    ```bash
-   pip install -r requirements.txt
-   pip install -e .
+   uv sync
    ```
 
 3. **Configure Claude Desktop**:
@@ -66,7 +65,7 @@ My MonarchMoney referral: https://www.monarchmoney.com/referral/ufmn0r83yf?r_sou
 Open Terminal and run:
 ```bash
 cd /path/to/your/monarch-mcp-server
-python login_setup.py
+uv run uv run python login_setup.py
 ```
 
 Follow the prompts:
@@ -150,7 +149,7 @@ Get my cashflow for the last 3 months using get_cashflow
 
 ### Authentication Issues
 If you see "Authentication needed" errors:
-1. Run the setup command: `cd /path/to/your/monarch-mcp-server && python login_setup.py`
+1. Run the setup command: `cd /path/to/your/monarch-mcp-server && uv run python login_setup.py`
 2. Restart Claude Desktop
 3. Try using a tool like `get_accounts`
 
@@ -193,14 +192,14 @@ monarch-mcp-server/
 
 ## 🙏 Acknowledgments
 
-This MCP server is built on top of the excellent [MonarchMoney Python library](https://github.com/hammem/monarchmoney) created by [@hammem](https://github.com/hammem). Their library provides the robust foundation that makes this integration possible, including:
+This MCP server is built on top of the [monarchmoneycommunity Python library](https://github.com/bradleyseanf/monarchmoneycommunity) by [@bradleyseanf](https://github.com/bradleyseanf). Their library provides the robust foundation that makes this integration possible, including:
 
 - Secure authentication with MFA support
 - Comprehensive API coverage for Monarch Money
 - Session management and persistence
-- Well-documented and maintained codebase
+- Actively maintained community fork
 
-Thank you to [@hammem](https://github.com/hammem) for creating and maintaining this essential library!
+Thank you to [@bradleyseanf](https://github.com/bradleyseanf) for maintaining this essential library!
 
 ## 📄 License
 
@@ -210,7 +209,7 @@ MIT License
 
 For issues:
 1. Check authentication with `check_auth_status`
-2. Run the setup command again: `cd /path/to/your/monarch-mcp-server && python login_setup.py`
+2. Run the setup command again: `cd /path/to/your/monarch-mcp-server && uv run python login_setup.py`
 3. Check error logs for detailed messages
 4. Ensure Monarch Money service is accessible
 
@@ -219,4 +218,4 @@ For issues:
 To update the server:
 1. Pull latest changes from repository
 2. Restart Claude Desktop
-3. Re-run authentication if needed: `python login_setup.py`
+3. Re-run authentication if needed: `uv run python login_setup.py`
