@@ -1,16 +1,10 @@
-[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/robcerda-monarch-mcp-server-badge.png)](https://mseep.ai/app/robcerda-monarch-mcp-server)
-
 # Monarch Money MCP Server
 
 A Model Context Protocol (MCP) server for integrating with the Monarch Money personal finance platform. This server provides seamless access to your financial accounts, transactions, budgets, and analytics through Claude Desktop.
 
-My MonarchMoney referral: https://www.monarchmoney.com/referral/ufmn0r83yf?r_source=share
+> **Note:** This is a fork of [robcerda/monarch-mcp-server](https://github.com/robcerda/monarch-mcp-server), originally created by [@robcerda](https://github.com/robcerda). The original project is no longer actively maintained. This fork is intermittently maintained.
 
 **Built with the [monarchmoneycommunity Python library](https://github.com/bradleyseanf/monarchmoneycommunity) by [@bradleyseanf](https://github.com/bradleyseanf)** - An actively maintained community fork of the unofficial Monarch Money API with full MFA support.
-
-<a href="https://glama.ai/mcp/servers/@robcerda/monarch-mcp-server">
-  <img width="380" height="200" src="https://glama.ai/mcp/servers/@robcerda/monarch-mcp-server/badge" alt="monarch-mcp-server MCP server" />
-</a>
 
 ## 🚀 Quick Start
 
@@ -192,14 +186,8 @@ monarch-mcp-server/
 
 ## 🙏 Acknowledgments
 
-This MCP server is built on top of the [monarchmoneycommunity Python library](https://github.com/bradleyseanf/monarchmoneycommunity) by [@bradleyseanf](https://github.com/bradleyseanf). Their library provides the robust foundation that makes this integration possible, including:
-
-- Secure authentication with MFA support
-- Comprehensive API coverage for Monarch Money
-- Session management and persistence
-- Actively maintained community fork
-
-Thank you to [@bradleyseanf](https://github.com/bradleyseanf) for maintaining this essential library!
+- **[@robcerda](https://github.com/robcerda)** — original author of [monarch-mcp-server](https://github.com/robcerda/monarch-mcp-server)
+- **[@bradleyseanf](https://github.com/bradleyseanf)** — maintainer of the [monarchmoneycommunity Python library](https://github.com/bradleyseanf/monarchmoneycommunity), which provides the API foundation including secure authentication, MFA support, and comprehensive Monarch Money API coverage
 
 ## 📄 License
 
