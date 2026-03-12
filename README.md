@@ -65,7 +65,7 @@ My MonarchMoney referral: https://www.monarchmoney.com/referral/ufmn0r83yf?r_sou
 Open Terminal and run:
 ```bash
 cd /path/to/your/monarch-mcp-server
-uv run uv run python login_setup.py
+uv run python login_setup.py
 ```
 
 Follow the prompts:

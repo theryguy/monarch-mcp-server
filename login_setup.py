@@ -9,6 +9,7 @@ import os
 import getpass
 import shutil
 import inspect
+import subprocess
 import traceback
 import sys
 from pathlib import Path
@@ -163,6 +164,16 @@ async def main():
         # Save session securely to keyring
         try:
             print(f"\n🔐 Saving session securely to system keyring...")
+            # Pre-emptively delete any existing keychain entry via the security CLI.
+            # This clears stale entries whose ACLs block Python's keyring from overwriting them.
+            result = subprocess.run(
+                ["security", "delete-generic-password",
+                 "-s", "com.mcp.monarch-mcp-server",
+                 "-a", "monarch-token"],
+                capture_output=True,
+            )
+            if result.returncode == 0:
+                print("🗑️ Cleared existing keychain entry")
             secure_session.save_authenticated_session(mm)
             print(f"✅ Session saved securely to keyring!")
                 
