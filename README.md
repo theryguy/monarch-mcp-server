@@ -2,7 +2,7 @@
 
 A Model Context Protocol (MCP) server for integrating with the Monarch Money personal finance platform. This server provides seamless access to your financial accounts, transactions, budgets, and analytics through Claude Desktop.
 
-> **Note:** This is a fork of [robcerda/monarch-mcp-server](https://github.com/robcerda/monarch-mcp-server), originally created by [@robcerda](https://github.com/robcerda). The original project is no longer actively maintained. This fork is intermittently maintained.
+> **Warning:** The upstream repo ([robcerda/monarch-mcp-server](https://github.com/robcerda/monarch-mcp-server)) is no longer maintained. This fork fixes issues that prevent the server from working today, including migrating to the [monarchmoneycommunity](https://github.com/bradleyseanf/monarchmoneycommunity) library, secure keyring-based authentication, and fixes for account/transaction handling. This fork is intermittently maintained.
 
 **Built with the [monarchmoneycommunity Python library](https://github.com/bradleyseanf/monarchmoneycommunity) by [@bradleyseanf](https://github.com/bradleyseanf)** - An actively maintained community fork of the unofficial Monarch Money API with full MFA support.
 
