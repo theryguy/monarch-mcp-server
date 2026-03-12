@@ -10,24 +10,41 @@ A Model Context Protocol (MCP) server for integrating with the Monarch Money per
 
 ### 1. Installation
 
-1. **Clone this repository**:
+1. **Install Homebrew** (if not already installed):
    ```bash
-   git clone https://github.com/robcerda/monarch-mcp-server.git
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   ```
+
+2. **Install uv** (Python package manager):
+   ```bash
+   brew install uv
+   ```
+
+3. **Clone this repository**:
+   ```bash
+   git clone https://github.com/theryguy/monarch-mcp-server.git
    cd monarch-mcp-server
    ```
 
-2. **Install dependencies**:
+4. **Install dependencies**:
    ```bash
    uv sync
    ```
 
-3. **Configure Claude Desktop**:
+5. **Find your uv path** (needed for the next step):
+   ```bash
+   which uv
+   ```
+   - **Apple Silicon (M1/M2/M3/M4):** `/opt/homebrew/bin/uv`
+   - **Intel Mac:** `/usr/local/bin/uv`
+
+6. **Configure Claude Desktop**:
    Add this to your Claude Desktop configuration file:
-   
+
    **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-   
+
    **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-   
+
    ```json
    {
      "mcpServers": {
@@ -47,8 +64,10 @@ A Model Context Protocol (MCP) server for integrating with the Monarch Money per
      }
    }
    ```
-   
-   **Important**: Replace `/path/to/your/monarch-mcp-server` with your actual path!
+
+   **Important**:
+   - Replace `/opt/homebrew/bin/uv` with your actual uv path from step 5 if different
+   - Replace `/path/to/your/monarch-mcp-server` with your actual clone path
 
 4. **Restart Claude Desktop**
 
