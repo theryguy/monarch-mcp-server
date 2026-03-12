@@ -31,8 +31,9 @@ async def main():
     
     # Check the version first
     try:
-        import monarchmoney
-        print(f"📦 MonarchMoney version: {getattr(monarchmoney, '__version__', 'unknown')}")
+        import importlib.metadata
+        version = importlib.metadata.version("monarchmoneycommunity")
+        print(f"📦 monarchmoneycommunity version: {version}")
     except Exception as e:
         print(f"⚠️  Could not check version: {e}")
     
@@ -139,7 +140,7 @@ async def main():
             else:
                 print("This appears to be an API compatibility issue.")
                 print("The MonarchMoney library API may have changed.")
-                print("Try updating the library: pip install --upgrade monarchmoney")
+                print("Try updating the library: pip install --upgrade monarchmoneycommunity")
                 return
         
         # Save session securely to keyring
